@@ -1,0 +1,129 @@
+﻿<Window x:Class="CGG_project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="800"
+        xmlns:utils="clr-namespace:Utils">
+    <Window.Resources>
+        <utils:TextToDouble x:Key="TextToDouble"/>
+        <utils:BoolToVisibitityConverted x:Key="Cnv"/>
+    </Window.Resources>
+        <DockPanel VerticalAlignment="Stretch" Dock="Bottom,Top">
+            <Menu x:Name="Menu" HorizontalAlignment="Left" DockPanel.Dock="Top" MinHeight="25">
+                <MenuItem Header="TestText">
+                    <MenuItem Header="Preferences">
+                        <StackPanel Orientation="Horizontal">
+                            <Label>ShowTasks</Label>
+                            <CheckBox HorizontalAlignment="Center" x:Name="toggle" IsChecked="True" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </MenuItem>  
+                </MenuItem>
+        </Menu>
+            <DockPanel>
+            <TabControl DockPanel.Dock="Top, Bottom">
+                <TabItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Header="График" Name="Task1">
+                    <DockPanel>
+                        <TextBox DockPanel.Dock="Top" Text="= x => 1 / (a_Field * x + b_Field) + Math.Sin(c_Field * x)*(x*x*d_Field)" Name="Task" HorizontalContentAlignment="Stretch" Visibility="{Binding ElementName=toggle, Path=IsChecked, Converter={StaticResource Cnv}}"/>
+                        <GroupBox Header="Fields" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MinWidth="1" MaxWidth="150" Width="auto"/>
+                                    <ColumnDefinition MinWidth="1" Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="1" Height="*"/>
+                                    <RowDefinition MinHeight="1" Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Grid.Column="0">
+                                    <GroupBox Header="Паля">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>A =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="A_Source"  VerticalAlignment="Top" Text="{Binding A_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>b =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="B_Source"  VerticalAlignment="Top" Text="{Binding B_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>c =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="C_Sourse"  VerticalAlignment="Top" Text="{Binding C_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>d =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="D_Sourse"  VerticalAlignment="Top" Text="{Binding C_FieldFromForm}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </GroupBox>
+                                </StackPanel>
+                                <GroupBox Grid.Row="0"  Grid.Column="1" Margin="10" Header="График" BorderThickness="1,1,1,1">
+                                    <Canvas Margin="3" Name="Task1Canvas" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <Polyline Stroke="Purple" StrokeThickness="2" Points="0,0 10,10 10,20 20,20" />
+                                    </Canvas>
+                                </GroupBox>
+                                <StatusBar HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1">
+                                    <Label Name="Coords" HorizontalAlignment="Right">
+                                        
+                                    </Label>
+                                </StatusBar>
+                            </Grid>
+                        </GroupBox>
+                        
+                    </DockPanel>
+                </TabItem>
+                <TabItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Header="Линия" Name="Task2" >
+                    <DockPanel>
+                        <TextBox DockPanel.Dock="Top" Text="Прямая брезенхема. Задаётся а и b." Name="Task2Text" HorizontalContentAlignment="Stretch" Visibility="{Binding ElementName=toggle, Path=IsChecked, Converter={StaticResource Cnv}}"/>
+                        <GroupBox Header="Fields" Margin="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MinWidth="1" MaxWidth="150" Width="auto"/>
+                                    <ColumnDefinition MinWidth="1" Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="1" Height="*"/>
+                                    <RowDefinition MinHeight="1" Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" Grid.Column="0">
+                                    <GroupBox Header="Паля">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>A =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="A_Source2"  VerticalAlignment="Top" Text="{Binding A_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>b =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="B_Source2"  VerticalAlignment="Top" Text="{Binding B_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>c =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="C_Sourse2"  VerticalAlignment="Top" Text="{Binding C_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label>d =</Label>
+                                                <TextBox Margin="5" MinWidth="40" Name="D_Sourse2"  VerticalAlignment="Top" Text="{Binding C_FieldFromForm}"/>
+                                            </StackPanel>
+                                            <Button Name="Recount"> Пересчитать </Button>
+                                        </StackPanel>
+                                    </GroupBox>
+                                </StackPanel>
+                                <GroupBox Grid.Row="0"  Grid.Column="1" Margin="10" Header="График" BorderThickness="1,1,1,1">
+                                    <Canvas Margin="3" Name="Task2Canvas" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <Polyline Stroke="Purple" StrokeThickness="2" Points="0,0 10,10 10,20 20,20" />
+                                    </Canvas>
+                                </GroupBox>
+                                <StatusBar HorizontalContentAlignment="Right" Grid.Column="1" Grid.Row="1">
+                                    <Label Name="Coords2" HorizontalAlignment="Right">
+
+                                    </Label>
+                                </StatusBar>
+                            </Grid>
+                        </GroupBox>
+
+                    </DockPanel>
+                </TabItem>
+                <TabItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Header="task3" Name="Task3" />
+            </TabControl>
+            </DockPanel>
+        </DockPanel>
+    
+</Window>
