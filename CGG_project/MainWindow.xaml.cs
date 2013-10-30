@@ -30,6 +30,9 @@ namespace CGG_project
             C_Sourse.DataContext = GraphicMaster;
             D_Sourse.DataContext = GraphicMaster;
 
+            A_Source2.DataContext = _lineClass;
+            B_Source2.DataContext = _lineClass;
+
             this.ContentRendered+=OnInitialized;
 
 

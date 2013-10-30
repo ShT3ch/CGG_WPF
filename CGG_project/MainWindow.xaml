@@ -100,7 +100,7 @@
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Label>d =</Label>
-                                                <TextBox Margin="5" MinWidth="40" Name="D_Sourse2"  VerticalAlignment="Top" Text="{Binding C_FieldFromForm}"/>
+                                                <TextBox Margin="5" MinWidth="40" Name="D_Sourse2"  VerticalAlignment="Top" Text="{Binding D_FieldFromForm}"/>
                                             </StackPanel>
                                             <Button Name="Recount"> Пересчитать </Button>
                                         </StackPanel>
